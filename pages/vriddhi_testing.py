@@ -7,14 +7,14 @@ st.title("Vriddhi Testing: Pāṇini's Grammar")
 # Section 1: Retrieve Vriddhi Vowels
 st.header("Retrieve Vriddhi Vowels")
 vriddhi_vowels = get_vriddhi_vowels()
-st.write("Vriddhi Vowels:", vriddhi_vowels)  # Display vowels
+st.write("Vriddhi Vowels:", vriddhi_vowels)
 
 # Section 2: Identify Vriddhi Vowels in Input
 st.header("Identify Vriddhi Vowels in a String")
 input_string = st.text_input("Enter a string (e.g., 'रामः शैवः गौरवः')", "रामः शैवः गौरवः")
 if input_string:
     found_vowels = identify_vriddhi_vowels(input_string)
-    st.write("Found Vriddhi Vowels:", found_vowels)  # Display found vowels
+    st.write("Found Vriddhi Vowels:", found_vowels)
 
 # Section 3: Explanation of Vriddhi
 st.header("Explanation of Vriddhi")
