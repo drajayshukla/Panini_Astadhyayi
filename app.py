@@ -17,7 +17,7 @@ if page == "Home":
 elif page == "Cheta (Character Processing)":
     from pages import cheta
     cheta.run()
-elif page == "Vriddhi":
+elif page == "vriddhi_testing":
     from pages import vriddhi
     vriddhi.run()
 elif page == "Sandhi":
