@@ -28,8 +28,6 @@ explanation = explain_vriddhi()
 st.write(explanation)
 #import streamlit as st
 #from panini.modules.separate_characters import separate_characters_and_map
-
-# Vriddhi mapping for vowels
 vriddhi_mapping = {
     'अ': 'आ',
     'इ': 'ऐ',
@@ -54,18 +52,32 @@ input_string = st.text_input("Enter a Sanskrit string (e.g., 'पठ् घञ�
 # Separate characters
 if input_string:
     separated_chars = separate_characters_and_map(input_string)
-    st.write("Separated Characters:", separated_chars)
+    indexed_chars = [(i, char) for i, char in enumerate(separated_chars, start=1)]
+    st.write("Separated Characters with Indices:")
+    for index, char in indexed_chars:
+        st.write(f"{index}: {char}")
 
-    # Character selection
-    char_to_vriddhi = st.selectbox("Select a character to apply Vriddhi:", separated_chars)
+    # Character index selection
+    selected_index = st.number_input(
+        "Enter the index of the character to apply Vriddhi (e.g., 1):",
+        min_value=1,
+        max_value=len(separated_chars),
+        step=1
+    )
 
-    # Check if the character can have Vriddhi
-    if char_to_vriddhi in vriddhi_mapping:
-        transformed_char = apply_vriddhi(char_to_vriddhi, vriddhi_mapping)
-        st.write(f"The character '{char_to_vriddhi}' is replaced with its Vriddhi equivalent: '{transformed_char}'")
+    # Get the character based on index
+    if selected_index:
+        char_to_vriddhi = separated_chars[selected_index - 1]
+        st.write(f"Selected Character: '{char_to_vriddhi}'")
 
-        # Replace the character in the original string
-        transformed_string = input_string.replace(char_to_vriddhi, transformed_char, 1)
-        st.write("Transformed String:", transformed_string)
-    else:
-        st.write(f"The character '{char_to_vriddhi}' does not have a Vriddhi equivalent.")
+        # Check if the character can have Vriddhi
+        if char_to_vriddhi in vriddhi_mapping:
+            transformed_char = apply_vriddhi(char_to_vriddhi, vriddhi_mapping)
+            st.write(f"The character '{char_to_vriddhi}' is replaced with its Vriddhi equivalent: '{transformed_char}'")
+
+            # Replace the character in the original string
+            separated_chars[selected_index - 1] = transformed_char
+            transformed_string = ''.join(separated_chars)
+            st.write("Transformed String:", transformed_string)
+        else:
+            st.write(f"The character '{char_to_vriddhi}' does not have a Vriddhi equivalent.")
