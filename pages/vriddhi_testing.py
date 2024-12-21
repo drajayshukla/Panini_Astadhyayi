@@ -1,6 +1,8 @@
 import streamlit as st
 from panini.modules.vriddhi1_1_1 import get_vriddhi_vowels, identify_vriddhi_vowels, explain_vriddhi
 from panini.modules.separate_characters import separate_characters_and_map
+from panini.modules.halant_handling import group_sanskrit_characters
+
 # Title of the app
 st.title("Vriddhi Testing: Pāṇini's Grammar")
 
