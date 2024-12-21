@@ -1,14 +1,22 @@
+import streamlit as st
 from panini.modules.vriddhi1_1_1 import get_vriddhi_vowels, identify_vriddhi_vowels, explain_vriddhi
 
-# Example 1: Retrieve वृद्धि vowels
+# Title of the app
+st.title("Vriddhi Testing: Pāṇini's Grammar")
+
+# Section 1: Retrieve Vriddhi Vowels
+st.header("Retrieve Vriddhi Vowels")
 vriddhi_vowels = get_vriddhi_vowels()
-print("वृद्धि vowels:", vriddhi_vowels)  # Output: ['आ', 'ऐ', 'औ']
+st.write("Vriddhi Vowels:", vriddhi_vowels)  # Display vowels
 
-# Example 2: Identify वृद्धि vowels in a string
-input_string = "रामः शैवः गौरवः"
-found_vowels = identify_vriddhi_vowels(input_string)
-print("Found वृद्धि vowels:", found_vowels)  # Output: ['आ', 'ऐ', 'औ']
+# Section 2: Identify Vriddhi Vowels in Input
+st.header("Identify Vriddhi Vowels in a String")
+input_string = st.text_input("Enter a string (e.g., 'रामः शैवः गौरवः')", "रामः शैवः गौरवः")
+if input_string:
+    found_vowels = identify_vriddhi_vowels(input_string)
+    st.write("Found Vriddhi Vowels:", found_vowels)  # Display found vowels
 
-# Example 3: Explanation of वृद्धि संज्ञा
+# Section 3: Explanation of Vriddhi
+st.header("Explanation of Vriddhi")
 explanation = explain_vriddhi()
-print(explanation)
+st.write(explanation)
