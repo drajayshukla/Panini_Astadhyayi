@@ -58,9 +58,9 @@ st.title("Sanskrit Vriddhi Transformation")
 # Input string
 input_string = st.text_input("Enter a Sanskrit string (e.g., 'पठ् घञ्')", "पठ् घञ्")
 if input_string:
-    # Step 1: Separate characters using logical grouping
-    separated_characters = group_sanskrit_characters(input_string)
-    st.write("Separated Characters with Indices:")
+    # Step 1: Separate characters using separate_characters_and_map
+    separated_characters = separate_characters_and_map(input_string)
+    st.write("Separated Characters:", separated_characters)
 
     # Display the characters with their indices
     for i, char in enumerate(separated_characters, start=1):
