@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17edbba7-11df-4c3b-9d9e-9475d6f10a9a" name="Changes" comment="" />
+    <list default="true" id="17edbba7-11df-4c3b-9d9e-9475d6f10a9a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +44,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pages" />
+      <recent name="$PROJECT_DIR$/panini/modules" />
       <recent name="$PROJECT_DIR$/panini" />
       <recent name="$PROJECT_DIR$" />
     </key>
