@@ -30,6 +30,10 @@ st.write(explanation)
 #from panini.modules.separate_characters import separate_characters_and_map
 
 # Vriddhi mapping for vowels
+import streamlit as st
+from panini.modules.separate_characters import separate_characters_and_map
+
+# Vriddhi mapping for vowels
 vriddhi_mapping = {
     'अ': 'आ',
     'इ': 'ऐ',
@@ -54,6 +58,9 @@ input_string = st.text_input("Enter a Sanskrit string (e.g., 'पठ् घञ�
 # Separate characters
 if input_string:
     separated_chars = separate_characters_and_map(input_string)
+    # Ensure separated_chars is a list
+    separated_chars = list(separated_chars)
+
     indexed_chars = [(i, char) for i, char in enumerate(separated_chars, start=1)]
     st.write("Separated Characters with Indices:")
     for index, char in indexed_chars:
@@ -77,8 +84,8 @@ if input_string:
             transformed_char = apply_vriddhi(char_to_vriddhi, vriddhi_mapping)
             st.write(f"The character '{char_to_vriddhi}' is replaced with its Vriddhi equivalent: '{transformed_char}'")
 
-            # Create a new string with the Vriddhi transformation
-            transformed_chars = separated_chars[:]
+            # Modify the list of characters
+            transformed_chars = separated_chars[:]  # Create a copy of the list
             transformed_chars[selected_index - 1] = transformed_char
             transformed_string = ''.join(transformed_chars)
             st.write("Transformed String:", transformed_string)
