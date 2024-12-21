@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17edbba7-11df-4c3b-9d9e-9475d6f10a9a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Panini_Astadhyayi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Panini_Astadhyayi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/adengaguna.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/modules/adengaguna.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/halantayam_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/modules/halantayam_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/merging_in_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/modules/merging_in_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/nalop_pratipadak.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/modules/nalop_pratipadak.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/pratyahara_2 .py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/modules/pratyahara_2 .py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/replace_last_occurence.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/modules/replace_last_occurence.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/separate_characters.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/modules/separate_characters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/upadha_deergh.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/modules/upadha_deergh.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/cheta.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cheta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/cheta1.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cheta1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

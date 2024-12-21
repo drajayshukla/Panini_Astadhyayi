@@ -6,12 +6,14 @@ from panini.modules.upadha_deergh import apply_last_character_rules
 from panini.modules.merging_in_list import merge_characters
 from panini.modules.nalop_pratipadak import remove_last_character_if_needed
 
+
 # Function to replace the last occurrence of a substring
 def replace_last_occurrence(word, old_char, new_chars):
     reversed_word = word[::-1]
     reversed_new_chars = new_chars[::-1]
     replaced_word = reversed_word.replace(old_char[::-1], reversed_new_chars, 1)
     return replaced_word[::-1]
+
 
 def run():
     st.title("Cheta: Character and Rule Processing")
@@ -73,6 +75,28 @@ def run():
         # Final Output
         st.header("Final Output")
         st.write(output)
+
+    # Add Markdown Comments
+    st.markdown("""
+        ---
+        ### Additional Information
+        **Characters and Grammar Rules**:
+        - चिञ् तृच् , नीञ् तृच् , स्तुञ् तृच् , डुकृञ् = कृञ् तृच्  , हृञ् तृच्  भू इट् तृच् = भवि तृच्
+
+        **Set and Anit Definitions**:
+        - **सेट्**: यासु क्रियासु 'इट्' प्रयुज्‍ज्‍यते ता: क्रिया: 'सेट्' इति उच्‍यन्‍ते।  यथा - पठिष्‍यति।
+        - **अनिट्**: यासु क्रियासु 'इट्' नैव प्रयुज्‍ज्‍यते ता: क्रिया: 'अनिट्' इति उच्‍यन्‍ते। 
+          एतासु धातुषु ऊदन्त, ऋदन्‍त, यु, रु, क्ष्‍णु, शीड्., स्‍नु, नु, क्षु, श्वि, डीड्., श्री, वृड्., वृञ् धातून् परित्‍यज्‍य सर्वा: अजन्‍तधातव: परिगण्‍यन्‍ते।
+
+        **Rule 3:1:133 - ण्वुल्-तृचौ**:
+        - The affixes ण्वुल् (अक्) and तृच् (तृ) are placed after all verbal roots, expressing the agent.
+        - Example: 
+            - कृ 'to do' + ण्वुल् = कार + यु (VII.२. II५) = कार + अक (VII.I.I) = कारक nom. sing.
+            - कृ + तृच् = कर् + तृ ७.३.८४ = कर्तृ nom. sing. कर्ता. 
+            - Similarly: हारकः and हर्ता.
+        ---
+    """)
+
 
 if __name__ == "__main__":
     run()
