@@ -1,9 +1,9 @@
 import streamlit as st
-#from panini.modules.separate_characters import separate_characters_and_map
+from panini.modules.separate_characters import separate_characters_and_map
 from panini.modules.halantayam_list import remove_last_characters
 from panini.modules.adengaguna import modify_cleaned_strings
 from panini.modules.upadha_deergh import apply_last_character_rules
-#from panini.modules.merging_in_list import merge_characters
+from panini.modules.merging_in_list import merge_characters
 from panini.modules.nalop_pratipadak import remove_last_character_if_needed
 
 
