@@ -28,6 +28,8 @@ explanation = explain_vriddhi()
 st.write(explanation)
 #import streamlit as st
 #from panini.modules.separate_characters import separate_characters_and_map
+
+# Vriddhi mapping for vowels
 vriddhi_mapping = {
     'अ': 'आ',
     'इ': 'ऐ',
@@ -59,7 +61,7 @@ if input_string:
 
     # Character index selection
     selected_index = st.number_input(
-        "Enter the index of the character to apply Vriddhi (e.g., 1):",
+        "Enter the index of the character to apply Vriddhi (e.g., 2):",
         min_value=1,
         max_value=len(separated_chars),
         step=1
@@ -75,9 +77,10 @@ if input_string:
             transformed_char = apply_vriddhi(char_to_vriddhi, vriddhi_mapping)
             st.write(f"The character '{char_to_vriddhi}' is replaced with its Vriddhi equivalent: '{transformed_char}'")
 
-            # Replace the character in the original string
-            separated_chars[selected_index - 1] = transformed_char
-            transformed_string = ''.join(separated_chars)
+            # Create a new string with the Vriddhi transformation
+            transformed_chars = separated_chars[:]
+            transformed_chars[selected_index - 1] = transformed_char
+            transformed_string = ''.join(transformed_chars)
             st.write("Transformed String:", transformed_string)
         else:
             st.write(f"The character '{char_to_vriddhi}' does not have a Vriddhi equivalent.")
