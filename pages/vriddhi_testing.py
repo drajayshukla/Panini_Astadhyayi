@@ -2,7 +2,7 @@ import streamlit as st
 from panini.modules.vriddhi1_1_1 import get_vriddhi_vowels, identify_vriddhi_vowels, explain_vriddhi
 from panini.modules.separate_characters import separate_characters_and_map
 from panini.modules.halant_handling import group_sanskrit_characters
-
+from panini.modules.merging_in_list import merge_characters
 # Title of the app
 st.title("Vriddhi Testing: Pāṇini's Grammar")
 
@@ -84,5 +84,8 @@ if input_string:
 
         # Display the transformed characters
         st.write("Transformed Characters:", ''.join(separated_characters))
+        merged_word = merge_characters(''.join(separated_characters))
+        st.subheader("Step 7: Merge Characters")
+        st.write(merged_word)
 
 
