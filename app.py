@@ -1,28 +1,30 @@
 import streamlit as st
+import inspect
+import panini.modules.separate_characters as separate_characters_module
+import panini.modules.halant_handling as halant_handling_module
+import panini.modules.merging_in_list as merging_in_list_module
 
-# Main navigation
-st.sidebar.title("Pāṇini Aṣṭādhyāyī Explorer")
-st.sidebar.write("Select a feature to explore:")
+def register_shared_resources():
+    """
+    Register all callable functions from the specified modules into `st.session_state.shared_resources`.
+    """
+    shared_resources = {}
 
-# Navigation options
-page = st.sidebar.radio(
-    "Go to:",
-    ("Home", "Cheta (Character Processing)", "Vriddhi", "Sandhi", "Samasa")
-)
+    # List of modules to import functions from
+    modules = [separate_characters_module, halant_handling_module, merging_in_list_module]
 
-# Navigate to the selected page
-if page == "Home":
-    st.title("Welcome to the Pāṇini Aṣṭādhyāyī Explorer")
-    st.write("Explore the brilliance of Pāṇini's grammar through modern tools.")
-elif page == "Cheta (Character Processing)":
-    from pages import cheta
-    cheta.run()
-elif page == "vriddhi_testing":
-    from pages import vriddhi
-    vriddhi.run()
-elif page == "Sandhi":
-    from pages import sandhi
-    sandhi.run()
-elif page == "Samasa":
-    from pages import samasa
-    samasa.run()
+    for module in modules:
+        # Add all callable objects (functions) to shared resources
+        for name, obj in inspect.getmembers(module, inspect.isfunction):
+            shared_resources[name] = obj
+
+    st.session_state.shared_resources = shared_resources
+
+# Register shared resources at app startup
+if "shared_resources" not in st.session_state:
+    register_shared_resources()
+
+# Streamlit app title
+st.title("Pāṇini's Sanskrit Grammar Toolkit")
+st.sidebar.title("Navigation")
+st.sidebar.markdown("Use the sidebar to navigate between grammar modules.")
