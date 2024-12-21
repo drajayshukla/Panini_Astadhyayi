@@ -31,8 +31,9 @@ st.write(explanation)
 #import streamlit as st
 #from panini.modules.separate_characters import separate_characters_and_map
 
-# Vriddhi mapping for vowels
+
 import streamlit as st
+
 from panini.modules.separate_characters import separate_characters_and_map
 
 # Vriddhi mapping for vowels
@@ -56,40 +57,32 @@ st.title("Sanskrit Vriddhi Transformation")
 
 # Input string
 input_string = st.text_input("Enter a Sanskrit string (e.g., 'पठ् घञ्')", "पठ् घञ्")
-
-# Separate characters
 if input_string:
-    separated_chars = separate_characters_and_map(input_string)
-    # Ensure separated_chars is a list
-    separated_chars = list(separated_chars)
-
-    indexed_chars = [(i, char) for i, char in enumerate(separated_chars, start=1)]
+    # Step 1: Separate characters using logical grouping
+    separated_characters = group_sanskrit_characters(input_string)
     st.write("Separated Characters with Indices:")
-    for index, char in indexed_chars:
-        st.write(f"{index}: {char}")
 
-    # Character index selection
+    # Display the characters with their indices
+    for i, char in enumerate(separated_characters, start=1):
+        st.write(f"{i}: {char}")
+
+    # Step 2: Let the user select a character index
     selected_index = st.number_input(
-        "Enter the index of the character to apply Vriddhi (e.g., 2):",
+        "Enter the index of the character to apply Vriddhi:",
         min_value=1,
-        max_value=len(separated_chars),
+        max_value=len(separated_characters),
         step=1
     )
 
-    # Get the character based on index
-    if selected_index:
-        char_to_vriddhi = separated_chars[selected_index - 1]
-        st.write(f"Selected Character: '{char_to_vriddhi}'")
+    # Step 3: Apply Vriddhi transformation
+    if st.button("Apply Vriddhi"):
+        selected_char = separated_characters[selected_index - 1]
+        transformed_char = apply_vriddhi(selected_char, vriddhi_mapping)
 
-        # Check if the character can have Vriddhi
-        if char_to_vriddhi in vriddhi_mapping:
-            transformed_char = apply_vriddhi(char_to_vriddhi, vriddhi_mapping)
-            st.write(f"The character '{char_to_vriddhi}' is replaced with its Vriddhi equivalent: '{transformed_char}'")
+        # Update the character in the list
+        separated_characters[selected_index - 1] = transformed_char
 
-            # Modify the list of characters
-            transformed_chars = separated_chars[:]  # Create a copy of the list
-            transformed_chars[selected_index - 1] = transformed_char
-            transformed_string = ''.join(transformed_chars)
-            st.write("Transformed String:", transformed_string)
-        else:
-            st.write(f"The character '{char_to_vriddhi}' does not have a Vriddhi equivalent.")
+        # Display the transformed characters
+        st.write("Transformed Characters:", ''.join(separated_characters))
+
+
