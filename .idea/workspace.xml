@@ -37,14 +37,14 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/dr.ajayshukla/PycharmProjects/Panini_Astadhyayi/pages",
+    "last_opened_file_path": "/Users/dr.ajayshukla/PycharmProjects/Panini_Astadhyayi/panini/modules",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/panini/modules" />
+      <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/panini" />
       <recent name="$PROJECT_DIR$" />
     </key>
