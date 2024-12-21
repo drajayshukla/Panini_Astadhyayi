@@ -1,4 +1,4 @@
-from panini.modules.vriddhi import get_vriddhi_vowels, identify_vriddhi_vowels, explain_vriddhi
+from panini.modules.vriddhi1_1_1 import get_vriddhi_vowels, identify_vriddhi_vowels, explain_vriddhi
 
 # Example 1: Retrieve वृद्धि vowels
 vriddhi_vowels = get_vriddhi_vowels()
