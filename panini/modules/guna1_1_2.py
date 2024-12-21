@@ -1,13 +1,19 @@
-# guna1_1_2.py
-
 # Define गुण characters
 guna_vowels = ['अ', 'ए', 'ओ']
 
 # Define a mapping for गुण transformations
 guna_mapping = {
     'ऋ': 'अ',  # ऋ transforms to अ
-    # Add other transformations as needed based on further rules
+    'इ': 'ए',  # इ transforms to ए
+    'उ': 'ओ',  # उ transforms to ओ
 }
+
+def get_guna_vowels():
+    """
+    Retrieve all vowels that qualify as गुण.
+    :return: List of गुण vowels
+    """
+    return guna_vowels
 
 def is_guna(char):
     """
@@ -16,6 +22,14 @@ def is_guna(char):
     :return: True if the character is गुण, False otherwise
     """
     return char in guna_vowels
+
+def identify_guna_vowels(word):
+    """
+    Identify गुण characters in the given word.
+    :param word: Input Sanskrit word (str)
+    :return: List of गुण vowels found in the word
+    """
+    return [char for char in word if is_guna(char)]
 
 def apply_guna_transformation(word, guna_mapping):
     """
@@ -29,14 +43,26 @@ def apply_guna_transformation(word, guna_mapping):
         transformed_word += guna_mapping.get(char, char)
     return transformed_word
 
-def identify_guna_in_context(word):
+def explain_guna():
     """
-    Identify गुण characters in the context of a Sanskrit word.
-    :param word: Input Sanskrit word (str)
-    :return: List of tuples with index and गुण characters
+    Provide an explanation of the concept of गुण in Sanskrit grammar.
+    :return: Explanation string
     """
-    guna_indices = [(i, char) for i, char in enumerate(word) if is_guna(char)]
-    return guna_indices
+    explanation = """
+    ### Guna (गुण)
+    In Sanskrit grammar, certain vowels are classified as 'Guna'. 
+    According to the rule `अत्-एङ् गुणः`, the vowels अ, ए, and ओ are designated as 'Guna'.
+
+    #### Examples:
+    1. ऋtoङिसर्वनामस्थानयोः (7.3.110):
+       - Input: पितृ + औ (Prathama-Dvivachana suffix)
+       - Transformation:
+           - पितर् + औ (ऋ transforms to अ as per Guna rule)
+       - Output: पितरौ
+
+    2. Guna transformations are also applied to ऋ, इ, and उ as per the rules of Panini's grammar.
+    """
+    return explanation
 
 # Example usage
 if __name__ == "__main__":
@@ -45,10 +71,16 @@ if __name__ == "__main__":
 
     print("Input Word:", word)
 
+    # Get गुण vowels
+    print("गुण Vowels:", get_guna_vowels())
+
     # Identify गुण characters
-    guna_characters = identify_guna_in_context(word)
-    print("गुण Characters with Indices:", guna_characters)
+    guna_characters = identify_guna_vowels(word)
+    print("Identified गुण Characters:", guna_characters)
 
     # Apply गुण transformation
     transformed_word = apply_guna_transformation(word, guna_mapping)
     print("Transformed Word:", transformed_word)
+
+    # Explanation of गुण
+    print(explain_guna())
