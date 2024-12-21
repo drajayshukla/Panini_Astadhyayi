@@ -3,9 +3,10 @@ guna_vowels = ['अ', 'ए', 'ओ']
 
 # Define a mapping for गुण transformations
 guna_mapping = {
-    'ऋ': 'अ',  # ऋ transforms to अ
+    'अ': 'अ',  # ऋ transforms to अ
     'इ': 'ए',  # इ transforms to ए
-    'उ': 'ओ',  # उ transforms to ओ
+    'उ': 'ओ',
+    'ऋ':'अर्'# उ transforms to ओ
 }
 
 def get_guna_vowels():
