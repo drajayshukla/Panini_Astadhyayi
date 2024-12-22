@@ -1,4 +1,3 @@
-
 mapping = {
         'क': 'क्' + 'अ',
         'का': 'क्' + 'आ',
@@ -534,14 +533,3 @@ mapping = {
     'ह्': 'ह्'
 
     }
-
-
-def map_character(char):
-    """
-    Maps a single character to its decomposed representation using the mapping dictionary.
-    Args:
-        char (str): The character to map.
-    Returns:
-        str: The mapped representation, or the character itself if not found.
-    """
-    return mapping.get(char, char)
