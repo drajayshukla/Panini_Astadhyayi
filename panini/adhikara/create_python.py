@@ -40,5 +40,5 @@ def create_python_files_from_txt(txt_file):
 
 
 # Specify the input .txt file
-txt_file = "atidesha_sutra.txt"  # Replace with the path to your .txt file
+txt_file = "adhikara_sutra.txt"  # Replace with the path to your .txt file
 create_python_files_from_txt(txt_file)

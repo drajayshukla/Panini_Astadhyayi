@@ -25,6 +25,30 @@ def remove_anunasik_akshar_from_list(word_list):
     return modified_list
 
 
+
+
+import re
+
+def remove_anunasik_akshar1(word1):
+    """
+    Remove all anunasik akshar (nasalized vowels) from a Sanskrit word.
+
+    :param word: A string containing Sanskrit text.
+    :return: The modified string with anunasik akshar removed.
+    """
+    # Regular expression for nasalized vowels
+    pattern = r'[अआइईउऊऋॠऌॡएऐओऔ]ँ'
+    return re.sub(pattern, '', word1)
+
+def remove_anunasik_akshar_from_list1(word1_list):
+    """
+    Remove all anunasik akshar (nasalized vowels) from a list of Sanskrit words.
+
+    :param word_list: A list of strings containing Sanskrit text.
+    :return: A list of strings with anunasik akshar removed.
+    """
+    return [remove_anunasik_akshar1(word) for word1 in word1_list]
+
 # Example usage
 if __name__ == "__main__":
     # Single word example

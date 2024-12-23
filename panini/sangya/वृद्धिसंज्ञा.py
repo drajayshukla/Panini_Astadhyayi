@@ -1,6 +1,14 @@
 # वृद्धिरादैच् १.१.१
 # vriddhi.py
-
+vriddhi_sangya = [
+    {
+        "sangya": "वृद्धिसंज्ञा",
+        "sutra": "वृद्धिरादैच्",
+        "number": "१.१.१",
+        "description": "The vowels आ, ऐ, and औ are termed 'वृद्धि'.",
+        "letters": ["आ", "ऐ", "औ"]
+    }
+]
 def get_vriddhi_vowels():
     """
     Returns the list of Vriddhi vowels: आ, ऐ, औ.
