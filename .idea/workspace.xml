@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="17edbba7-11df-4c3b-9d9e-9475d6f10a9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/specific_mod/sangya/sangya_sutra.txt" beforeDir="false" afterPath="$PROJECT_DIR$/panini/specific_mod/sangya/sangya_sutra.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/bhag.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Character_separation_list.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,17 +38,17 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/dr.ajayshukla/PycharmProjects/Panini_Astadhyayi/panini/specific_mod/sangya",
+    "last_opened_file_path": "/Users/dr.ajayshukla/PycharmProjects/Panini_Astadhyayi/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi" />
       <recent name="$PROJECT_DIR$/panini/specific_mod/sangya" />
       <recent name="$PROJECT_DIR$/data/dhatupath/dhatu_ajant_halant/halant" />
       <recent name="$PROJECT_DIR$/data/dhatupath/dhatu_ajant_halant/ajant" />
       <recent name="$PROJECT_DIR$/data/dhatupath/dhatu_ajant_halant" />
-      <recent name="$PROJECT_DIR$/panini/specific_mod/tingant/daslakar/aardhdatuk_lakar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data/shiksha" />
@@ -58,8 +58,8 @@
       <recent name="$PROJECT_DIR$/panini" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.text_csv_dhatupath">
-    <configuration name="create_python (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.इत_तस्यलोप">
+    <configuration name="इत_तस्यलोप" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Panini_Astadhyayi" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -67,32 +67,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/panini/paribhasha" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/panini/paribhasha/create_python.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="create_python (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Panini_Astadhyayi" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/panini/atidesh" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/panini/atidesh/create_python.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi/इत_तस्यलोप.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,7 +101,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="create_python" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="csv_to_specific_column" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Panini_Astadhyayi" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -130,11 +109,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/panini/sangya" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/shiksha/create_python.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi/csv_to_specific_column.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="datupath_updesh" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Panini_Astadhyayi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi/datupath_updesh.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -166,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.इत_तस्यलोप" />
+        <item itemvalue="Python.datupath_updesh" />
+        <item itemvalue="Python.csv_to_specific_column" />
         <item itemvalue="Python.text_csv_dhatupath" />
         <item itemvalue="Python.create_python (3)" />
-        <item itemvalue="Python.create_python (2)" />
-        <item itemvalue="Python.create_python (1)" />
-        <item itemvalue="Python.create_python" />
       </list>
     </recent_temporary>
   </component>
