@@ -6,39 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="17edbba7-11df-4c3b-9d9e-9475d6f10a9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sutrapath/adhikara_sutra.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/sutrapath/adhikara_sutra.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sutrapath/paribhasha_sutra.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/sutrapath/paribhasha_sutra.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/adhikara/create_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/adhikara/create_python.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 10.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 12.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 13.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 14.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 15.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 16.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 17.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 18.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 4.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 5.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 6.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 7.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 8.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy 9.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/a copy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/achanunasik.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/modules/achanunasik.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/dhatu_path.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/dhatupath .txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/dhatupath.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/panini.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/panini_sutra.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/panini_sutra_1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/panini_sutra_2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/sanskrit dictionary english.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/sanskrit dictionary sanskrit_best.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/sangya/create_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/shiksha/create_python.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/sangya/गुणसंज्ञा.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/sangya/गुणसंज्ञा.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/sangya/वृद्धिसंज्ञा.py" beforeDir="false" afterPath="$PROJECT_DIR$/panini/sangya/वृद्धिसंज्ञा.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panini/specific_mod/sangya/sangya_sutra.txt" beforeDir="false" afterPath="$PROJECT_DIR$/panini/specific_mod/sangya/sangya_sutra.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +58,7 @@
       <recent name="$PROJECT_DIR$/panini" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.create_python (3)">
+  <component name="RunManager" selected="Python.text_csv_dhatupath">
     <configuration name="create_python (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Panini_Astadhyayi" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,8 +143,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="text_csv_dhatupath" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Panini_Astadhyayi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi/text_csv_dhatupath.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.text_csv_dhatupath" />
         <item itemvalue="Python.create_python (3)" />
         <item itemvalue="Python.create_python (2)" />
         <item itemvalue="Python.create_python (1)" />
