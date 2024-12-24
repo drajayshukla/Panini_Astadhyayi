@@ -36,9 +36,9 @@ if words:
     ends_with_ष = filter_by_suffix(words, "ष्")
     ends_with_इर = filter_by_suffix(words, "इर्")
 
-    starts_with_ञि = filter_by_prefix(words, "ञि")
-    starts_with_टु = filter_by_prefix(words, "टु")
-    starts_with_डु = filter_by_prefix(words, "डु")
+    starts_with_ञि = filter_by_prefix(words, "ञ्इ")
+    starts_with_टु = filter_by_prefix(words, "ट्उ")
+    starts_with_डु = filter_by_prefix(words, "ड्उ")
 
     anunasik_akshars = ["अँ", "आँ", "इँ", "ईँ", "उँ", "ऊँ", "ऋँ", "ॠँ", "ऌँ", "ॡँ", "एँ", "ओँ", "ऐँ", "औँ"]
     anunasik_words = filter_by_anunasik(words, anunasik_akshars)
