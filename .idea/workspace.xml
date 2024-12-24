@@ -57,7 +57,7 @@
       <recent name="$PROJECT_DIR$/panini" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.इत_तस्यलोप">
+  <component name="RunManager" selected="Python.इत_लिस्ट">
     <configuration name="इत_तस्यलोप" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Panini_Astadhyayi" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -79,7 +79,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="create_python (3)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="इत_लिस्ट" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Panini_Astadhyayi" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -87,11 +87,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/panini/adhikara" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pages" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/panini/adhikara/create_python.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pages/इत_लिस्ट.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.इत_लिस्ट" />
         <item itemvalue="Python.इत_तस्यलोप" />
         <item itemvalue="Python.datupath_updesh" />
         <item itemvalue="Python.csv_to_specific_column" />
         <item itemvalue="Python.text_csv_dhatupath" />
-        <item itemvalue="Python.create_python (3)" />
       </list>
     </recent_temporary>
   </component>
