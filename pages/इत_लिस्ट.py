@@ -1,51 +1,67 @@
-import streamlit as st
-import re
-
-# Function to filter words containing the exact anunasik character sequence
-def filter_by_exact_anunasik(words, anunasik_char):
+def remove_anunasik_akshar(word):
     """
-    Filters words containing the exact anunasik character sequence.
-    Uses regex to ensure the character is matched as a proper unit.
+    Removes anunāsika characters from a single word and replaces them with 'इत्'.
+
+    Parameters:
+        word (str): The input word to process.
+
+    Returns:
+        str: The word with anunāsika characters replaced by 'इत्'.
     """
-    pattern = re.compile(rf"{anunasik_char}")
-    return [word for word in words if pattern.search(word)]
+    anunasik_akshar = ['अँ', 'आँ', 'इँ', 'ईँ', 'उँ', 'ऊँ', 'ऋँ', 'ॠँ', 'ऌँ', 'ॡँ', 'एँ', 'ओँ', 'ऐँ', 'औँ']
+    for akshar in anunasik_akshar:
+        word = word.replace(akshar, 'इत्')
+    return word
 
-# Streamlit App
-st.title("Sanskrit Word Filter for Anunasik Characters")
 
-# Initialize words as an empty list
-words = []
+def categorize_dhatu(dhatu_list):
+    """
+    Categorizes a list of dhatus by identifying their unique features and patterns.
 
-# User input: upload or enter list
-upload_or_input = st.radio("How do you want to provide the list of words?", ("Upload File", "Enter Words Manually"))
+    Parameters:
+        dhatu_list (list): A list of dhatu words.
 
-if upload_or_input == "Upload File":
-    uploaded_file = st.file_uploader("Upload a file containing words (one word per line):")
-    if uploaded_file:
-        words = uploaded_file.read().decode("utf-8").splitlines()
-else:
-    words_input = st.text_area("Enter words (separated by commas):")
-    if words_input:
-        words = [word.strip() for word in words_input.split(",")]
+    Returns:
+        dict: A dictionary categorizing dhatus into processed and anunasik-containing categories.
+    """
+    anunasik_dhatu = []
+    processed_dhatu = []
 
-# Proceed if words are available
-if words:
-    # List of anunasik characters
-    anunasik_chars = ["अँ", "आँ", "इँ", "ईँ", "उँ", "ऊँ", "ऋँ", "ॠँ", "ऌँ", "ॡँ", "एँ", "ओँ", "ऐँ", "औँ"]
-    results = {}
+    for dhatu in dhatu_list:
+        if any(char in dhatu for char in ['ँ', 'ं', 'ः']):  # Check for anunāsika markers
+            anunasik_dhatu.append(dhatu)
+        processed_dhatu.append(remove_anunasik_akshar(dhatu))
 
-    # Filter words for each anunasik character
-    for char in anunasik_chars:
-        results[char] = filter_by_exact_anunasik(words, char)
+    return {
+        "Anunāsika_Dhatus": anunasik_dhatu,
+        "Processed_Dhatus": processed_dhatu
+    }
 
-    # Display results
-    st.header("Words Containing Anunasik Characters")
-    for char, words_with_char in results.items():
-        st.subheader(f"Words containing '{char}':")
-        if words_with_char:
-            st.write(words_with_char)
-        else:
-            st.write(f"No words contain '{char}'.")
 
-else:
-    st.info("Please provide a list of words to proceed.")
+def process_word_list(word_list):
+    """
+    Processes a list of words, replacing all anunāsika characters with 'इत्'.
+
+    Parameters:
+        word_list (list): A list of words to process.
+
+    Returns:
+        list: A list with processed words containing 'इत्' replacements.
+    """
+    return [remove_anunasik_akshar(word) for word in word_list]
+
+
+# Example Input
+dhatu_upadesh = ['भू', 'एधँ', 'स्पर्धँ', 'गाधृँ', 'बाधृँ', 'नाधृँ', 'नाथृँ', 'दधँ', 'स्कुदिँ', 'श्विदिँ']
+
+# Step 1: Categorize and Process Dhatus
+categorized_dhatus = categorize_dhatu(dhatu_upadesh)
+
+# Step 2: Display Categorized Results
+for category, words in categorized_dhatus.items():
+    print(f"{category}: {', '.join(words)}")
+
+# Additional Operations
+processed_dhatus = process_word_list(dhatu_upadesh)
+print("Processed Dhatus (Replacements Applied):")
+print(processed_dhatus)
