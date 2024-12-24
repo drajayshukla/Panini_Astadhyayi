@@ -1,6 +1,6 @@
 import streamlit as st
 import re
-from sanskrit.mapping_akshar_separator1 import generate_mapping, separate_characters_and_map
+from panini.modules.mapping_akshar_separator1 import generate_mapping, separate_characters_and_map
 
 
 def remove_last_character(word):
