@@ -55,7 +55,7 @@
       <recent name="$PROJECT_DIR$/panini" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.इत_लिस्ट">
+  <component name="RunManager" selected="Python.इत_तस्यलोप">
     <configuration name="इत_तस्यलोप" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Panini_Astadhyayi" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,8 +163,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.इत_लिस्ट" />
         <item itemvalue="Python.इत_तस्यलोप" />
+        <item itemvalue="Python.इत_लिस्ट" />
         <item itemvalue="Python.datupath_updesh" />
         <item itemvalue="Python.csv_to_specific_column" />
         <item itemvalue="Python.text_csv_dhatupath" />
