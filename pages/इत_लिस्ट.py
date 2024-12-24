@@ -1,67 +1,47 @@
+import streamlit as st
+
 def remove_anunasik_akshar(word):
     """
     Removes anunāsika characters from a single word and replaces them with 'इत्'.
-
-    Parameters:
-        word (str): The input word to process.
-
-    Returns:
-        str: The word with anunāsika characters replaced by 'इत्'.
     """
     anunasik_akshar = ['अँ', 'आँ', 'इँ', 'ईँ', 'उँ', 'ऊँ', 'ऋँ', 'ॠँ', 'ऌँ', 'ॡँ', 'एँ', 'ओँ', 'ऐँ', 'औँ']
     for akshar in anunasik_akshar:
         word = word.replace(akshar, 'इत्')
     return word
 
-
-def categorize_dhatu(dhatu_list):
+def process_text(text):
     """
-    Categorizes a list of dhatus by identifying their unique features and patterns.
-
-    Parameters:
-        dhatu_list (list): A list of dhatu words.
-
-    Returns:
-        dict: A dictionary categorizing dhatus into processed and anunasik-containing categories.
+    Processes the text, replacing all anunāsika characters with 'इत्'.
     """
-    anunasik_dhatu = []
-    processed_dhatu = []
+    words = text.split()
+    processed_words = [remove_anunasik_akshar(word) for word in words]
+    return " ".join(processed_words)
 
-    for dhatu in dhatu_list:
-        if any(char in dhatu for char in ['ँ', 'ं', 'ः']):  # Check for anunāsika markers
-            anunasik_dhatu.append(dhatu)
-        processed_dhatu.append(remove_anunasik_akshar(dhatu))
+# Streamlit App
+st.title("Anunasik Akshar Processor")
+st.write("Upload a .txt file or enter text to process and replace anunāsika characters with 'इत्'.")
 
-    return {
-        "Anunāsika_Dhatus": anunasik_dhatu,
-        "Processed_Dhatus": processed_dhatu
-    }
+# Option to upload a .txt file
+uploaded_file = st.file_uploader("Upload a .txt file", type="txt")
+input_text = st.text_area("Or enter text manually:")
 
+# Process the text if either input is provided
+if uploaded_file is not None or input_text:
+    if uploaded_file is not None:
+        # Read the uploaded file
+        text = uploaded_file.read().decode("utf-8")
+    else:
+        text = input_text
 
-def process_word_list(word_list):
-    """
-    Processes a list of words, replacing all anunāsika characters with 'इत्'.
+    # Process the text
+    processed_text = process_text(text)
+    st.subheader("Processed Text:")
+    st.text(processed_text)
 
-    Parameters:
-        word_list (list): A list of words to process.
-
-    Returns:
-        list: A list with processed words containing 'इत्' replacements.
-    """
-    return [remove_anunasik_akshar(word) for word in word_list]
-
-
-# Example Input
-dhatu_upadesh = ['भू', 'एधँ', 'स्पर्धँ', 'गाधृँ', 'बाधृँ', 'नाधृँ', 'नाथृँ', 'दधँ', 'स्कुदिँ', 'श्विदिँ']
-
-# Step 1: Categorize and Process Dhatus
-categorized_dhatus = categorize_dhatu(dhatu_upadesh)
-
-# Step 2: Display Categorized Results
-for category, words in categorized_dhatus.items():
-    print(f"{category}: {', '.join(words)}")
-
-# Additional Operations
-processed_dhatus = process_word_list(dhatu_upadesh)
-print("Processed Dhatus (Replacements Applied):")
-print(processed_dhatus)
+    # Provide download option for processed text
+    st.download_button(
+        label="Download Processed Text",
+        data=processed_text,
+        file_name="processed_text.txt",
+        mime="text/plain",
+    )
