@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="17edbba7-11df-4c3b-9d9e-9475d6f10a9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/अचनुनासिक_लोप.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/अचनुनासिक_लोप.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,17 +38,17 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/dr.ajayshukla/PycharmProjects/Panini_Astadhyayi/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi",
+    "last_opened_file_path": "/Users/dr.ajayshukla/PycharmProjects/Panini_Astadhyayi/pages",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/data/dhatupath/dhatupath reference/Dhatupath_ashtadhyayi" />
       <recent name="$PROJECT_DIR$/panini/specific_mod/sangya" />
       <recent name="$PROJECT_DIR$/data/dhatupath/dhatu_ajant_halant/halant" />
       <recent name="$PROJECT_DIR$/data/dhatupath/dhatu_ajant_halant/ajant" />
-      <recent name="$PROJECT_DIR$/data/dhatupath/dhatu_ajant_halant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data/shiksha" />

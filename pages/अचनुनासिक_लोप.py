@@ -29,17 +29,26 @@ This app removes **anunasik akshar** (nasalized vowels) from Sanskrit words. You
 
 # Single word input
 st.header("Single Word Processing")
-single_word = st.text_input("Enter a Sanskrit word with anunasik akshar:", "")
+single_word = st.text_input(
+    "Enter a Sanskrit word with anunasik akshar:",
+    value="एध्अँ"  # Example placeholder
+)
+
 if single_word:
     result_single = remove_anunasik_akshar(single_word)
     st.write("Modified Word:", result_single)
 
 # List of words input
 st.header("List of Words Processing")
-word_list_input = st.text_area("Enter a list of Sanskrit words (comma-separated):", "")
+word_list_input = st.text_area(
+    "Enter a list of Sanskrit words (comma-separated):",
+    value="'एध्अँ', 'स्प्अर्ध्अँ', 'ग्आध्ऋँ', 'ब्आध्ऋँ', 'न्आध्ऋँ'"  # Example placeholder
+)
+
 if word_list_input:
     try:
-        word_list = [word.strip() for word in word_list_input.split(',')]
+        # Parse the input and remove whitespace
+        word_list = [word.strip().strip("'") for word in word_list_input.split(',')]
         result_list = remove_anunasik_akshar_from_list(word_list)
         st.write("Original List:", word_list)
         st.write("Modified List:", result_list)
