@@ -15,6 +15,9 @@ def filter_by_anunasik(words, anunasik_akshars):
 # Streamlit App
 st.title("Sanskrit Word Filter")
 
+# Initialize words as an empty list
+words = []
+
 # User input: upload or enter list
 upload_or_input = st.radio("How do you want to provide the list of words?", ("Upload File", "Enter Words Manually"))
 
@@ -24,7 +27,8 @@ if upload_or_input == "Upload File":
         words = uploaded_file.read().decode("utf-8").splitlines()
 else:
     words_input = st.text_area("Enter words (separated by commas):")
-    words = [word.strip() for word in words_input.split(",")] if words_input else []
+    if words_input:
+        words = [word.strip() for word in words_input.split(",")]
 
 # Proceed if words are available
 if words:
