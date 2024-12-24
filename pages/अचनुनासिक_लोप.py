@@ -1,0 +1,63 @@
+import streamlit as st
+import re
+
+# Function to remove anunasik akshar from a single word
+def remove_anunasik_akshar(word):
+    anunasik_akshar = ['अँ', 'आँ', 'इँ', 'ईँ', 'उँ', 'ऊँ', 'ऋँ', 'ॠँ', 'ऌँ', 'ॡँ', 'एँ', 'ऐँ', 'ओँ', 'औँ']
+    for akshar in anunasik_akshar:
+        word = word.replace(akshar, '')
+    return word
+
+# Function to remove anunasik akshar from a list of words
+def remove_anunasik_akshar_from_list(word_list):
+    return [remove_anunasik_akshar(word) for word in word_list]
+
+# Alternative function using regex
+def remove_anunasik_akshar1(word):
+    pattern = r'[अआइईउऊऋॠऌॡएऐओऔ]ँ'
+    return re.sub(pattern, '', word)
+
+def remove_anunasik_akshar_from_list1(word_list):
+    return [remove_anunasik_akshar1(word) for word in word_list]
+
+# Streamlit App
+st.title("Anunasik Akshar Removal Tool")
+
+st.markdown("""
+This app removes **anunasik akshar** (nasalized vowels) from Sanskrit words. You can input a single word or a list of words.
+""")
+
+# Single word input
+st.header("Single Word Processing")
+single_word = st.text_input("Enter a Sanskrit word with anunasik akshar:", "")
+if single_word:
+    result_single = remove_anunasik_akshar(single_word)
+    st.write("Modified Word:", result_single)
+
+# List of words input
+st.header("List of Words Processing")
+word_list_input = st.text_area("Enter a list of Sanskrit words (comma-separated):", "")
+if word_list_input:
+    try:
+        word_list = [word.strip() for word in word_list_input.split(',')]
+        result_list = remove_anunasik_akshar_from_list(word_list)
+        st.write("Original List:", word_list)
+        st.write("Modified List:", result_list)
+
+        # Download button for modified list
+        result_str = ", ".join(result_list)
+        st.download_button(
+            label="Download Modified List",
+            data=result_str,
+            file_name="modified_word_list.txt",
+            mime="text/plain"
+        )
+    except Exception as e:
+        st.error(f"Error processing the list: {e}")
+
+st.markdown("""
+---
+### Note:
+- Single words can be processed in the first section.
+- Lists of words should be comma-separated and processed in the second section.
+""")
