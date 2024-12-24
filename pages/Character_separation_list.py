@@ -42,7 +42,7 @@ if input_option == "Upload File":
 
 elif input_option == "Enter Text":
     # Text Input Section
-    text_input = st.text_area("Enter a Python List (e.g., ['word1', 'word2']):")
+    text_input = st.text_area("Enter a Python List (e.g., ['word1', 'word2', 'word3']):")
 
     if text_input:
         try:
