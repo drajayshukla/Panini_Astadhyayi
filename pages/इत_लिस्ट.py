@@ -1,11 +1,14 @@
 import streamlit as st
+import re
 
 # Function to filter words containing the exact anunasik character sequence
 def filter_by_exact_anunasik(words, anunasik_char):
     """
     Filters words containing the exact anunasik character sequence.
+    Uses regex to ensure the character is matched as a proper unit.
     """
-    return [word for word in words if anunasik_char in word]
+    pattern = re.compile(rf"{anunasik_char}")
+    return [word for word in words if pattern.search(word)]
 
 # Streamlit App
 st.title("Sanskrit Word Filter for Anunasik Characters")
