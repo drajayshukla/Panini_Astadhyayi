@@ -1,5 +1,5 @@
 import streamlit as st
-from panini.modules.separate_characters import separate_characters_and_map
+from panini.modules.separate_characters_list import separate_characters_and_map
 import ast  # Safer alternative to eval for parsing Python objects
 
 # App Title
