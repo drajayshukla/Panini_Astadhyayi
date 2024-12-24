@@ -1,7 +1,10 @@
 import streamlit as st
 
-# Function to filter words containing specific anunasik characters
-def filter_by_anunasik(words, anunasik_char):
+# Function to filter words containing the exact anunasik character sequence
+def filter_by_exact_anunasik(words, anunasik_char):
+    """
+    Filters words containing the exact anunasik character sequence.
+    """
     return [word for word in words if anunasik_char in word]
 
 # Streamlit App
@@ -30,7 +33,7 @@ if words:
 
     # Filter words for each anunasik character
     for char in anunasik_chars:
-        results[char] = filter_by_anunasik(words, char)
+        results[char] = filter_by_exact_anunasik(words, char)
 
     # Display results
     st.header("Words Containing Anunasik Characters")
