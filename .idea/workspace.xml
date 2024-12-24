@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17edbba7-11df-4c3b-9d9e-9475d6f10a9a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panini/modules/shabdaroopa.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/shabdaroopa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/संधि कार्य प्रथम .py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/संधि कार्य प्रथम .py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/संस्कृत संधि .py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/संस्कृत संधि1 .py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +52,11 @@
       <recent name="$PROJECT_DIR$/data/dhatupath/dhatu_ajant_halant/ajant" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/panini/modules" />
       <recent name="$PROJECT_DIR$/pages" />
       <recent name="$PROJECT_DIR$/data/shiksha" />
       <recent name="$PROJECT_DIR$/data/dhatupath/dhatu_ajant_halant/ajant" />
       <recent name="$PROJECT_DIR$/panini/specific_mod/tingant/daslakar/sarvdhatuk_lakar" />
-      <recent name="$PROJECT_DIR$/data/sutrapath" />
     </key>
   </component>
   <component name="RunManager" selected="Python.इत_तस्यलोप">
