@@ -1,4 +1,5 @@
 # Prompt the user for input
+import streamlit as st
 mapping = {
     'क': 'क्' + 'अ',
     'का': 'क्' + 'आ',
@@ -491,51 +492,66 @@ mapping = {
 
 }
 
-words = input("Enter the words separated by a space: ").split()
-
-# Apply the sandhi rules
-first_word = words[0]
-second_word = words[1]
-
-if first_word.endswith("अ") and second_word.startswith("इ"):
-    result = first_word[:-1] + "ए" + second_word[1:]
-elif first_word.endswith("अ") and second_word.startswith("ई"):
-    result = first_word[:-1] + "ए" + second_word[1:]
-elif first_word.endswith("आ") and second_word.startswith("इ"):
-    result = first_word[:-1] + "ए" + second_word[1:]
-elif first_word.endswith("आ") and second_word.startswith("ई"):
-    result = first_word[:-1] + "ए" + second_word[1:]
-elif first_word.endswith("अ") and second_word.startswith("ई"):
-    result = first_word[:-1] + "ओ" + second_word[1:]
-elif first_word.endswith("आ") and second_word.startswith("उ"):
-    result = first_word[:-1] + "ओ" + second_word[1:]
-elif first_word.endswith("अ") and second_word.startswith("ऊ"):
-    result = first_word[:-1] + "ओ" + second_word[1:]
-elif first_word.endswith("आ") and second_word.startswith("ऊ"):
-    result = first_word[:-1] + "ओ" + second_word[1:]
-elif first_word.endswith("अ") and second_word.startswith("ऋ"):
-    result = first_word[:-1] + "र्" + second_word[1:]
-elif first_word.endswith("आ") and second_word.startswith("ऋ"):
-    result = first_word[:-1] + "र्" + second_word[1:]
-else:
-    result = "Invalid combination"
-
-# Print the result
-print(result)
-
-
-
-characters = input("Enter characters to merge: ")
-merged_word = ""
-i = 0
-
-while i < len(characters):
-    char = characters[i]
-    if i < len(characters) - 1 and (char + characters[i+1]) in mapping:
-        merged_word += mapping[char + characters[i+1]]
-        i += 2
+def apply_sandhi(first_word, second_word):
+    if first_word.endswith("अ") and second_word.startswith("इ"):
+        return first_word[:-1] + "ए" + second_word[1:]
+    elif first_word.endswith("अ") and second_word.startswith("ई"):
+        return first_word[:-1] + "ए" + second_word[1:]
+    elif first_word.endswith("आ") and second_word.startswith("इ"):
+        return first_word[:-1] + "ए" + second_word[1:]
+    elif first_word.endswith("आ") and second_word.startswith("ई"):
+        return first_word[:-1] + "ए" + second_word[1:]
+    elif first_word.endswith("अ") and second_word.startswith("उ"):
+        return first_word[:-1] + "ओ" + second_word[1:]
+    elif first_word.endswith("आ") and second_word.startswith("उ"):
+        return first_word[:-1] + "ओ" + second_word[1:]
+    elif first_word.endswith("अ") and second_word.startswith("ऊ"):
+        return first_word[:-1] + "ओ" + second_word[1:]
+    elif first_word.endswith("आ") and second_word.startswith("ऊ"):
+        return first_word[:-1] + "ओ" + second_word[1:]
+    elif first_word.endswith("अ") and second_word.startswith("ऋ"):
+        return first_word[:-1] + "र्" + second_word[1:]
+    elif first_word.endswith("आ") and second_word.startswith("ऋ"):
+        return first_word[:-1] + "र्" + second_word[1:]
     else:
-        merged_word += char
-        i += 1
+        return "Invalid combination"
 
-print("Merged word:", merged_word)
+# Define the merging logic
+def merge_characters(input_characters):
+    merged_word = ""
+    i = 0
+    while i < len(input_characters):
+        char = input_characters[i]
+        if i < len(input_characters) - 1 and (char + input_characters[i + 1]) in mapping:
+            merged_word += mapping[char + input_characters[i + 1]]
+            i += 2
+        else:
+            merged_word += char
+            i += 1
+    return merged_word
+
+# Streamlit UI
+st.title("Sanskrit Word Processor")
+
+# Input for transliteration
+st.header("Character Merging")
+input_characters = st.text_input("Enter characters to merge:", "")
+if st.button("Merge Characters"):
+    merged_word = merge_characters(input_characters)
+    st.write("Merged Word:", merged_word)
+
+# Input for Sandhi rules
+st.header("Sandhi Application")
+first_word = st.text_input("Enter the first word:")
+second_word = st.text_input("Enter the second word:")
+if st.button("Apply Sandhi"):
+    result = apply_sandhi(first_word, second_word)
+    st.write("Result after Sandhi:", result)
+
+# Instructions and Usage
+st.sidebar.header("Instructions")
+st.sidebar.write("""
+1. Enter characters to merge in the 'Character Merging' section.
+2. Use the 'Sandhi Application' section to input two words and apply sandhi rules.
+3. Results will be displayed below the respective inputs.
+""")
