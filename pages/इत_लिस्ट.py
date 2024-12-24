@@ -1,19 +1,11 @@
 import streamlit as st
 
-# Function to filter words based on suffix
-def filter_by_suffix(words, suffix):
-    return [word for word in words if word.endswith(suffix)]
-
-# Function to filter words based on prefix
-def filter_by_prefix(words, prefix):
-    return [word for word in words if word.startswith(prefix)]
-
 # Function to filter words containing specific anunasik characters
-def filter_by_anunasik(words, anunasik_akshars):
-    return [word for word in words if any(akshar in word for akshar in anunasik_akshars)]
+def filter_by_anunasik(words, anunasik_char):
+    return [word for word in words if anunasik_char in word]
 
 # Streamlit App
-st.title("Sanskrit Word Filter")
+st.title("Sanskrit Word Filter for Anunasik Characters")
 
 # Initialize words as an empty list
 words = []
@@ -32,29 +24,22 @@ else:
 
 # Proceed if words are available
 if words:
-    # Filtering words
-    ends_with_ष = filter_by_suffix(words, "ष्")
-    ends_with_इर = filter_by_suffix(words, "इर्")
+    # List of anunasik characters
+    anunasik_chars = ["अँ", "आँ", "इँ", "ईँ", "उँ", "ऊँ", "ऋँ", "ॠँ", "ऌँ", "ॡँ", "एँ", "ओँ", "ऐँ", "औँ"]
+    results = {}
 
-    starts_with_ञि = filter_by_prefix(words, "ञ्इ")
-    starts_with_टु = filter_by_prefix(words, "ट्उ")
-    starts_with_डु = filter_by_prefix(words, "ड्उ")
-
-    anunasik_akshars = ["अँ", "आँ", "इँ", "ईँ", "उँ", "ऊँ", "ऋँ", "ॠँ", "ऌँ", "ॡँ", "एँ", "ओँ", "ऐँ", "औँ"]
-    anunasik_words = filter_by_anunasik(words, anunasik_akshars)
+    # Filter words for each anunasik character
+    for char in anunasik_chars:
+        results[char] = filter_by_anunasik(words, char)
 
     # Display results
-    st.header("Filtered Words")
-    st.subheader("Words ending with:")
-    st.write(f"**ष्:** {ends_with_ष}")
-    st.write(f"**इर्:** {ends_with_इर}")
+    st.header("Words Containing Anunasik Characters")
+    for char, words_with_char in results.items():
+        st.subheader(f"Words containing '{char}':")
+        if words_with_char:
+            st.write(words_with_char)
+        else:
+            st.write(f"No words contain '{char}'.")
 
-    st.subheader("Words starting with:")
-    st.write(f"**ञि:** {starts_with_ञि}")
-    st.write(f"**टु:** {starts_with_टु}")
-    st.write(f"**डु:** {starts_with_डु}")
-
-    st.subheader("Words containing Anunasik Akshars:")
-    st.write(anunasik_words)
 else:
     st.info("Please provide a list of words to proceed.")
