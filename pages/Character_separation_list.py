@@ -1,85 +1,61 @@
 import streamlit as st
 from panini.modules.separate_characters_list import separate_characters_and_map
-import ast  # Safer alternative to eval for parsing Python objects
 
 # App Title
-st.title("Python List Character Separation Tool")
+st.title("Text Character Separation Tool")
 
 # App Description
 st.markdown("""
-Upload a `.txt` file containing a Python list (e.g., `['word1', 'word2', 'word3']`), 
-or directly input the list, and this app will process the list using the `separate_characters_and_map` function.
+Upload a `.txt` file containing any text, or directly input the text, 
+and this app will process the text using the `separate_characters_and_map` function.
 """)
 
 # Option to choose input method
 input_option = st.radio("Choose input method:", ("Upload File", "Enter Text"))
 
-input_list = None
+input_text = None
 
 if input_option == "Upload File":
     # File Upload Section
-    uploaded_file = st.file_uploader("Upload a Python List File (.txt)", type="txt")
+    uploaded_file = st.file_uploader("Upload a Text File (.txt)", type="txt")
 
     if uploaded_file is not None:
         try:
             # Read the uploaded file content
-            file_content = uploaded_file.read().decode("utf-8").strip()
-
-            # Safely parse the file content into a Python object
-            parsed_content = ast.literal_eval(file_content)
-
-            # Validate if the parsed content is a list
-            if isinstance(parsed_content, list):
-                input_list = parsed_content
-                st.success("Python list successfully uploaded!")
-                st.write("Uploaded List:", input_list)
-            else:
-                st.error("The uploaded file does not contain a valid Python list.")
-        except SyntaxError:
-            st.error("The file contains invalid Python syntax. Please ensure it contains a valid Python list.")
+            input_text = uploaded_file.read().decode("utf-8").strip()
+            st.success("File successfully uploaded!")
+            st.write("Uploaded Text:")
+            st.text(input_text)
         except Exception as e:
             st.error(f"Error processing the file: {e}")
 
 elif input_option == "Enter Text":
     # Text Input Section
-    text_input = st.text_area("Enter a Python List (e.g., ['word1', 'word2', 'word3']):")
+    input_text = st.text_area("Enter any text below:")
 
-    if text_input:
-        try:
-            # Safely parse the text input into a Python object
-            parsed_content = ast.literal_eval(text_input)
-
-            # Validate if the parsed content is a list
-            if isinstance(parsed_content, list):
-                input_list = parsed_content
-                st.success("Python list successfully entered!")
-                st.write("Entered List:", input_list)
-            else:
-                st.error("The entered text does not contain a valid Python list.")
-        except SyntaxError:
-            st.error("The input contains invalid Python syntax. Please ensure it contains a valid Python list.")
-        except Exception as e:
-            st.error(f"Error processing the input: {e}")
+    if input_text:
+        st.success("Text successfully entered!")
+        st.write("Entered Text:")
+        st.text(input_text)
 
 # Processing and Output
-if input_list is not None:
-    # Process the list using the custom function
-    output_list = separate_characters_and_map(input_list)
-    st.write("Character Separation Result:", output_list)
+if input_text:
+    # Process the text using the custom function
+    output_result = separate_characters_and_map(input_text)
+    st.write("Character Separation Result:", output_result)
 
     # Provide a download button for the result
-    output_str = str(output_list)
+    output_str = str(output_result)
     st.download_button(
         label="Download Result as .txt",
         data=output_str,
-        file_name="processed_list.txt",
+        file_name="processed_text.txt",
         mime="text/plain"
     )
 
 # Instructions Section
 st.markdown("""
 ### Instructions:
-1. Create a `.txt` file with a valid Python list, e.g., `['word1', 'word2', 'word3']`, or directly enter it in the text box.
-2. Upload the file or enter the text above.
-3. View the processed result and download it as a `.txt` file.
+1. Upload a `.txt` file containing any text, or directly enter your text in the box.
+2. View the processed result and download it as a `.txt` file.
 """)
