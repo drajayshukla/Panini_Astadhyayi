@@ -3,7 +3,7 @@ import json
 import pandas as pd
 
 # Load JSON data from file
-DATA_FILE_PATH ='data/dhatupath/dhatupath reference/dhatupath_roop/merged_krut.json'
+DATA_FILE_PATH ='data/dhatupath/dhatupath reference/dhatupath_roop/merged_sannatyanglukaadi.json'
 
 def load_data(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:

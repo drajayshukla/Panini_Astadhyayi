@@ -2,10 +2,10 @@ import os
 import json
 
 # Directory containing the JSON files
-directory = '/Users/dr.ajayshukla/PycharmProjects/Panini_Astadhyayi/data/dhatupath/dhatupath reference/dhatupath_roop/tingant'
+directory = '/Users/dr.ajayshukla/PycharmProjects/Panini_Astadhyayi/data/dhatupath/dhatupath reference/dhatupath_roop/tingant_later'
 
 # Output file name
-output_file = 'merged.json'
+output_file = 'merged_sannatyanglukaadi.json'
 
 # Initialize an empty dictionary to store the merged data
 merged_data = {}
