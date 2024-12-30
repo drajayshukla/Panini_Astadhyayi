@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # Load merged JSON file
-MERGED_JSON_PATH = '/Users/dr.ajayshukla/PycharmProjects/Panini_Astadhyayi/switchoff/python_codes/merged_krut.json'
+MERGED_JSON_PATH = '/Users/dr.ajayshukla/PycharmProjects/Panini_Astadhyayi/data/dhatupath/dhatupath reference/dhatupath_roop/merged_krut.json'
 
 def load_data(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:

@@ -1,10 +1,9 @@
-
-
 import json
 import streamlit as st
 
 # Load merged JSON file
-MERGED_JSON_PATH ='data/dhatupath/dhatupath reference/dhatupath_roop/merged_krut.json'
+MERGED_JSON_PATH = 'data/dhatupath/dhatupath reference/dhatupath_roop/merged_krut.json'
+DHATUPATH_JSON_PATH = 'dhatupath.json'
 
 def load_data(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -17,6 +16,12 @@ def get_data():
         data_cache.update(load_data(MERGED_JSON_PATH))
     return data_cache
 
+dhatupath_data = {}
+def get_dhatupath_data():
+    if not dhatupath_data:
+        dhatupath_data.update(load_data(DHATUPATH_JSON_PATH))
+    return dhatupath_data
+
 # Function to display pratyayas for a given dhatu or its combinations
 def display_pratyayas(dhatu_code, pratyayas):
     st.subheader(f"Dhatu Code: {dhatu_code}")
@@ -25,84 +30,38 @@ def display_pratyayas(dhatu_code, pratyayas):
         forms_cleaned = [form.strip() for form in forms_list if form.strip()]  # Clean empty or unnecessary spaces
         st.write(f"- **{pratyaya}:** {' '.join(forms_cleaned)}")
 
-# Function to filter JSON data by dhatu prefix or pratyaya
-
-def filter_data_by_dhatu(data, dhatu_prefix):
-    filtered = {}
-    for file_name, dhatus in data.items():
-        for dhatu_code, pratyayas in dhatus.items():
-            if dhatu_code.startswith(dhatu_prefix):
-                if file_name not in filtered:
-                    filtered[file_name] = {}
-                filtered[file_name][dhatu_code] = pratyayas
-    return filtered
-
-def filter_data_by_pratyaya(data, pratyaya_key):
-    filtered = {}
-    for file_name, dhatus in data.items():
-        for dhatu_code, pratyayas in dhatus.items():
-            if pratyaya_key in pratyayas:
-                if file_name not in filtered:
-                    filtered[file_name] = {}
-                filtered[file_name][dhatu_code] = {pratyaya_key: pratyayas[pratyaya_key]}
-    return filtered
+# Function to display description for a Dhatu Code
+def display_dhatu_description(dhatu_code, dhatupath_data):
+    for entry in dhatupath_data:
+        if entry['identifier'] == dhatu_code:
+            st.info(f"**Description:** {entry['description']}")
+            break
 
 # Main Streamlit app
 st.title("Dhatu-Pratyaya Viewer")
 
-menu_option = st.sidebar.selectbox(
-    "Choose an Option:",
-    ["Search by Dhatu Code", "Search by Pratyaya", "Filter by Dhatu Prefix", "Filter by Pratyaya"]
-)
-
+# Load data
 data = get_data()
+dhatupath = get_dhatupath_data()
 
-if menu_option == "Search by Dhatu Code":
-    dhatu_code = st.text_input("Enter Dhatu Code:")
-    if dhatu_code:
-        found = False
-        for file_name, dhatus in data.items():
-            if dhatu_code in dhatus:
-                st.header(f"File: {file_name}")
-                display_pratyayas(dhatu_code, dhatus[dhatu_code])
-                found = True
-        if not found:
-            st.error("No matching Dhatu Code found.")
+# Extract unique Dhatu Codes and Pratyayas
+all_dhatus = sorted({dhatu_code for dhatus in data.values() for dhatu_code in dhatus.keys()})
+all_pratyayas = sorted({pratyaya for dhatus in data.values() for pratyayas in dhatus.values() for pratyaya in pratyayas.keys()})
 
-elif menu_option == "Search by Pratyaya":
-    pratyaya = st.text_input("Enter Pratyaya:")
-    if pratyaya:
-        found = False
-        for file_name, dhatus in data.items():
-            for dhatu_code, pratyayas in dhatus.items():
-                if pratyaya in pratyayas:
-                    st.header(f"File: {file_name}")
-                    st.subheader(f"Dhatu Code: {dhatu_code}")
-                    display_pratyayas(dhatu_code, {pratyaya: pratyayas[pratyaya]})
-                    found = True
-        if not found:
-            st.error("No matching Pratyaya found.")
+# Dropdown for Dhatu Code and Pratyaya selection
+dhatu_code = st.selectbox("Select a Dhatu Code:", all_dhatus)
+pratyaya = st.selectbox("Select a Pratyaya:", all_pratyayas)
 
-elif menu_option == "Filter by Dhatu Prefix":
-    dhatu_prefix = st.text_input("Enter Dhatu Prefix:")
-    if dhatu_prefix:
-        filtered_data = filter_data_by_dhatu(data, dhatu_prefix)
-        if filtered_data:
-            for file_name, dhatus in filtered_data.items():
-                st.header(f"File: {file_name}")
-                for dhatu_code, pratyayas in dhatus.items():
-                    display_pratyayas(dhatu_code, pratyayas)
-        else:
-            st.error("No matching Dhatus found with the given prefix.")
+if dhatu_code:
+    # Display description
+    display_dhatu_description(dhatu_code, dhatupath)
 
-elif menu_option == "Filter by Pratyaya":
-    pratyaya_key = st.text_input("Enter Pratyaya Key:")
-    if pratyaya_key:
-        filtered_data = filter_data_by_pratyaya(data, pratyaya_key)
-        if filtered_data:
-            for file_name, dhatus in filtered_data.items():
-                st.header(f"File: {file_name}")
-                for dhatu_code, pratyayas in dhatus.items():
-                    display_pratyayas(dhatu_code, pratyayas)
-        else:
-            st.error("No matching Pratyayas found with the given key.")
+if dhatu_code and pratyaya:
+    found = False
+    for file_name, dhatus in data.items():
+        if dhatu_code in dhatus and pratyaya in dhatus[dhatu_code]:
+            st.header(f"File: {file_name}")
+            display_pratyayas(dhatu_code, {pratyaya: dhatus[dhatu_code][pratyaya]})
+            found = True
+    if not found:
+        st.error("No matching data found for the selected Dhatu Code and Pratyaya.")
