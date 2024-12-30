@@ -1,46 +1,51 @@
 import streamlit as st
 import re
-from panini.modules.mapping_akshar_separator1 import generate_mapping, separate_characters_and_map
+from panini.modules.separate_characters_list import separate_characters_and_map
 
-def classify_by_end_character(words):
-    """Classifies words based on their ending characters."""
+def classify_by_end_characters(word_list):
+    """
+    Classifies words by their ending character(s).
+
+    Parameters:
+    word_list (list): List of words.
+
+    Returns:
+    dict: Classification of words based on their ending characters.
+    """
     classification = {}
-
-    for word in words:
+    for word in word_list:
         separated_word = separate_characters_and_map(word)
-        end_characters = separated_word[-1] if separated_word else ""
-
-        if end_characters not in classification:
-            classification[end_characters] = []
-
-        classification[end_characters].append(word)
-
+        if separated_word:
+            end_char = separated_word[-1]  # Take the last character
+            if end_char not in classification:
+                classification[end_char] = []
+            classification[end_char].append(word)
     return classification
 
-# Streamlit app
 def main():
-    st.title("Devanagari Word Separator and Classifier")
-    st.write("Enter Devanagari words as comma-separated input.")
+    st.title("Devanagari Word Classifier")
+    st.write("Enter Devanagari words separated by commas, and the app will classify them based on their ending character(s).")
 
-    # Input text box
-    user_input = st.text_area("Enter words:", value="पुलाकाद्-पुलाकात्, पुलिनाद्-पुलिनात्, पुलिन्दाद्-पुलिन्दात्, पुलोमजायाः, पुंश्चल्याः, पुष्कराद्-पुष्करात्, पुष्कराह्वाद्-पुष्कराह्वात्, पुष्करिण्याः")
+    # Input area for words
+    user_input = st.text_area("Enter words:", placeholder="पुलाकाद्-पुलाकात्, पुलिनाद्-पुलिनात्, ...")
 
-    if st.button("Classify"):
-        # Split input into words
-        words = [word.strip() for word in user_input.split(',') if word.strip()]
+    if st.button("Classify Words"):
+        if user_input.strip():
+            # Preprocess input
+            words = [word.strip() for word in re.split(r',\s*', user_input) if word.strip()]
 
-        if not words:
-            st.warning("Please enter some valid words.")
-            return
+            # Classify words by ending character
+            classification = classify_by_end_characters(words)
 
-        # Classify words
-        classification = classify_by_end_character(words)
-
-        # Display results
-        st.subheader("Classification by Ending Characters")
-        for end_character, classified_words in classification.items():
-            st.write(f"**Ending Character(s): {end_character}**")
-            st.write(", ".join(classified_words))
+            if classification:
+                st.subheader("Classification Results")
+                for end_char, grouped_words in classification.items():
+                    st.write(f"### Ending Character: {end_char}")
+                    st.write(", ".join(grouped_words))
+            else:
+                st.write("No valid words found for classification.")
+        else:
+            st.write("Please enter some words to classify.")
 
 if __name__ == "__main__":
     main()
