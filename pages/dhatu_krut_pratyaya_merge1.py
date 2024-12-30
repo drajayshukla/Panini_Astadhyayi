@@ -61,7 +61,7 @@ def display_dhatu_description(dhatu_code, dhatupath_data):
     if not description_found:
         st.warning(f"No description found for Dhatu Code: {dhatu_code}")
 
-# Function to search any Dhatu derived forms in JSON
+# Function to search derived forms in JSON
 def search_derived_forms(data, query):
     results = []
     query = query.strip()
@@ -103,18 +103,18 @@ if data:
             st.error("No matching data found for the selected Dhatu Code and Pratyaya.")
 
     # Search functionality
-    st.sidebar.header("Search Derived Forms")
-    search_query = st.sidebar.text_input("Enter a derived form to search:")
+    st.header("Search Derived Forms")
+    search_query = st.text_input("Enter a derived form to search:")
     if search_query:
         search_results = search_derived_forms(data, search_query)
         if search_results:
-            st.sidebar.subheader("Search Results:")
+            st.subheader("Search Results:")
             for file_name, dhatu_code, pratyaya, forms in search_results:
-                st.sidebar.write(f"File: {file_name}")
-                st.sidebar.write(f"Dhatu Code: {dhatu_code}, Pratyaya: {pratyaya}")
-                st.sidebar.write(f"Forms: {forms}")
-                st.sidebar.write("---")
+                st.write(f"**File:** {file_name}")
+                st.write(f"**Dhatu Code:** {dhatu_code}, **Pratyaya:** {pratyaya}")
+                st.write(f"**Forms:** {forms}")
+                st.write("---")
         else:
-            st.sidebar.error("No matches found.")
+            st.warning("No matches found.")
 else:
     st.error("Failed to load Dhatu-Pratyaya data.")
