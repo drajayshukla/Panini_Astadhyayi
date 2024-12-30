@@ -3,7 +3,7 @@ import streamlit as st
 
 # Load merged JSON file
 MERGED_JSON_PATH = 'data/dhatupath/dhatupath reference/dhatupath_roop/merged_krut.json'
-DHATUPATH_JSON_PATH = 'dhatupath.json'
+DHATUPATH_JSON_PATH = 'data/dhatupath/dhatupath reference/dhatupath_roop/dhatupath.json'
 
 def load_data(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
