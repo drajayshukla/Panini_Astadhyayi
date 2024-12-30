@@ -5,6 +5,7 @@ import streamlit as st
 
 # Load merged JSON file
 MERGED_JSON_PATH ='data/dhatupath/dhatupath reference/dhatupath_roop/merged_krut.json'
+
 def load_data(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         return json.load(file)
@@ -20,7 +21,9 @@ def get_data():
 def display_pratyayas(dhatu_code, pratyayas):
     st.subheader(f"Dhatu Code: {dhatu_code}")
     for pratyaya, forms in pratyayas.items():
-        st.write(f"- **{pratyaya}:** {' '.join(forms)}")
+        forms_list = forms.split(",")  # Avoid unnecessary separation of characters
+        forms_cleaned = [form.strip() for form in forms_list if form.strip()]  # Clean empty or unnecessary spaces
+        st.write(f"- **{pratyaya}:** {' '.join(forms_cleaned)}")
 
 # Function to filter JSON data by dhatu prefix or pratyaya
 
@@ -75,7 +78,7 @@ elif menu_option == "Search by Pratyaya":
                 if pratyaya in pratyayas:
                     st.header(f"File: {file_name}")
                     st.subheader(f"Dhatu Code: {dhatu_code}")
-                    st.write(f"- **{pratyaya}:** {' '.join(pratyayas[pratyaya])}")
+                    display_pratyayas(dhatu_code, {pratyaya: pratyayas[pratyaya]})
                     found = True
         if not found:
             st.error("No matching Pratyaya found.")
