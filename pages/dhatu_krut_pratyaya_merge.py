@@ -14,7 +14,20 @@ def load_data(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         return json.load(file)
 
-# Lazy loading of merged data to reduce memory usage
+# Normalize numbers to handle Devanagari and international formats
+def normalize_dhatu_code(code):
+    devanagari_to_international = str.maketrans("०१२३४५६७८९", "0123456789")
+    return code.translate(devanagari_to_international)
+
+# Standardize Dhatu Code to match identifiers
+def standardize_dhatu_code(code):
+    normalized_code = normalize_dhatu_code(code)
+    parts = normalized_code.split(".")
+    if len(parts) == 2:
+        return f"{int(parts[0]):02}.{int(parts[1]):04}"
+    return normalized_code
+
+# Lazy loading of merged data
 data_cache = {}
 def get_data():
     if not data_cache:
@@ -28,7 +41,7 @@ def get_dhatupath_data():
         dhatupath_data.extend(load_data(DHATUPATH_JSON_PATH))
     return dhatupath_data
 
-# Function to display pratyayas for a given Dhatu Code
+# Function to display Pratyayas for a given Dhatu Code
 def display_pratyayas(dhatu_code, pratyayas):
     st.subheader(f"Dhatu Code: {dhatu_code}")
     for pratyaya, forms in pratyayas.items():
@@ -38,9 +51,10 @@ def display_pratyayas(dhatu_code, pratyayas):
 
 # Function to display description for a Dhatu Code
 def display_dhatu_description(dhatu_code, dhatupath_data):
+    standardized_code = standardize_dhatu_code(dhatu_code)
     description_found = False
     for entry in dhatupath_data:
-        if entry['identifier'] == dhatu_code:
+        if normalize_dhatu_code(entry['identifier']) == standardized_code:
             st.info(f"**Description:** {entry['description']}")
             description_found = True
             break
@@ -56,7 +70,7 @@ dhatupath = get_dhatupath_data()
 
 # Extract unique Dhatu Codes and Pratyayas
 if data:
-    all_dhatus = sorted({dhatu_code for dhatus in data.values() for dhatu_code in dhatus.keys()})
+    all_dhatus = sorted({standardize_dhatu_code(dhatu_code) for dhatus in data.values() for dhatu_code in dhatus.keys()})
     all_pratyayas = sorted({pratyaya for dhatus in data.values() for pratyayas in dhatus.values() for pratyaya in pratyayas.keys()})
 
     # Dropdown for Dhatu Code and Pratyaya selection
