@@ -11,13 +11,13 @@ split_strings.insert(1, 'इट्')
 print("Modified List:", split_strings)
 
 
-from separate_characters_list import separate_characters_and_map
+from separate_characters_list_2025 import separate_characters_and_map
 
 
 output_string = separate_characters_and_map(split_strings)
 print('characters separation:', output_string)
 
-from halantayam_list_1 import remove_last_characters
+from halantayam_list_best import remove_last_characters
 
 
 
